@@ -15,11 +15,10 @@ SigLevel = Never\n\
 Server = https://repo.archlinuxcn.org/$arch\n\
 ' >> /etc/pacman.conf
 
-RUN pacman -Syyu --noconfirm && pacman -Scc --noconfirm
-
-RUN pacman -S --noconfirm gettext grep wget php php-embed php-swoole php-redis composer && \
+RUN pacman -Syyu --noconfirm && \
+    pacman -S --noconfirm gettext grep wget php php-embed php-swoole php-redis composer && \
     pacman -Scc --noconfirm && \
-    rm -rf /tmp/* && \
+    rm -rf /var/cache/pacman/pkg/* /tmp/* && \
     { \
         echo "upload_max_filesize=100M"; \
         echo "post_max_size=100M"; \
