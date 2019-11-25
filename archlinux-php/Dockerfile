@@ -1,0 +1,37 @@
+FROM archlinux
+
+LABEL maintainer="ideal <idealities@gmail.com>"
+
+ARG timezone
+
+ENV TIMEZONE=${timezone:-"Asia/Shanghai"}
+
+RUN ln -sf /usr/share/zoneinfo/${TIMEZONE} /etc/localtime
+
+COPY mirrorlist /etc/pacman.d/mirrorlist
+
+RUN echo -e '[archlinuxcn]\n\
+SigLevel = Never\n\
+Server = https://repo.archlinuxcn.org/$arch\n\
+' >> /etc/pacman.conf
+
+RUN pacman -Syyu --noconfirm && pacman -Scc --noconfirm
+
+RUN pacman -S --noconfirm gettext grep wget php php-embed php-swoole php-redis composer && \
+    pacman -Scc --noconfirm && \
+    rm -rf /tmp/* && \
+    { \
+        echo "upload_max_filesize=100M"; \
+        echo "post_max_size=100M"; \
+        echo "memory_limit=1024M"; \
+        echo "date.timezone=${TIMEZONE}"; \
+    } | tee /etc/php/conf.d/99-overrides.ini && \
+    { \
+        echo "extension=swoole.so"; \
+        echo 'swoole.use_shortname="Off"'; \
+    } | tee /etc/php/conf.d/swoole.ini && \
+    php -v && \
+    php -m
+    
+WORKDIR /var/www
+
