@@ -5,6 +5,6 @@ CREATE TABLE `user` (
   `gmt_create` datetime NOT NULL DEFAULT '2019-05-05 00:00:00' COMMENT '创建时间',
   `gmt_modified` datetime NOT NULL DEFAULT '2019-05-05 00:00:00' COMMENT '修改时间',
   `user_type` varchar(64) DEFAULT NULL,
-  PRIMARY KEY (`id`)
+  PRIMARY KEY (`uid`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_bin COMMENT='user';
 
