@@ -1,0 +1,47 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: mysql-slave
+  labels:
+    name: mysql-slave
+spec:
+  replicas: 2
+  selector:
+    name: mysql-slave
+  template:
+    metadata:
+      labels:
+        name: mysql-slave
+    spec:
+      containers:
+      - name: slave
+        image: ideal/mysql-slave:latest
+        ports:
+        - containerPort: 3306
+        volumeMounts:
+        - name: mysql-slave-data
+          mountPath: /var/lib/mysql
+        env:
+        - name: MYSQL_ROOT_PASSWORD
+          value: "root"
+        - name: MYSQL_REPLICATION_USER
+          value: 'fatcat_ru'
+        - name: MYSQL_REPLICATION_PASSWORD
+          value: 'fatcat_ru'
+      volumes:
+      - name: mysql-slave-data
+        hostPath:
+          path: /var/lib/mysql-slave
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: mysql-slave
+  labels:
+    name: mysql-slave
+spec:
+  ports:
+  - port: 3306
+    targetPort: 3306
+  selector:
+    name: mysql-slave

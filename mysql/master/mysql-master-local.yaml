@@ -1,0 +1,53 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: mysql-master
+  labels:
+    name: mysql-master
+spec:
+  replicas: 1
+  selector:
+    name: mysql-master
+  template:
+    metadata:
+      labels:
+        name: mysql-master
+    spec:
+      containers:
+      - name: master
+        image: ideal/mysql-master:latest
+        ports:
+        - containerPort: 3306
+        volumeMounts:
+        - name: mysql-master-data
+          mountPath: /var/lib/mysql
+        env:
+        - name: MYSQL_ROOT_PASSWORD
+          value: "root"
+        - name: MYSQL_DATABASE
+          value: "fatcat_db"
+        - name: MYSQL_USER
+          value: "fatcat"
+        - name: MYSQL_PASSWORD
+          value: "fatcat"
+        - name: MYSQL_REPLICATION_USER
+          value: 'fatcat_ru'
+        - name: MYSQL_REPLICATION_PASSWORD
+          value: 'fatcat_ru'
+      volumes:
+      - name: mysql-master-data
+        hostPath:
+          path: /var/lib/mysql
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: mysql-master
+  labels:
+    name: mysql-master
+spec:
+  ports:
+  - port: 3306
+    targetPort: 3306
+  selector:
+    name: mysql-master
