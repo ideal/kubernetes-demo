@@ -21,10 +21,10 @@ RUN pacman -Syyu --noconfirm && \
     rm -rf /var/cache/pacman/pkg/* /tmp/* && \
     { \
         echo "upload_max_filesize=100M"; \
-        echo "post_max_size=100M"; \
+        echo "post_max_size=105M"; \
         echo "memory_limit=1024M"; \
         echo "date.timezone=${TIMEZONE}"; \
-    } | tee /etc/php/conf.d/99-overrides.ini && \
+    } | tee /etc/php/conf.d/overrides.ini && \
     { \
         echo "extension=swoole.so"; \
         echo 'swoole.use_shortname="Off"'; \
