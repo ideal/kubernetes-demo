@@ -7,10 +7,12 @@
         "hyperf/dispatcher": "*",
         "hyperf/event": "*",
         "hyperf/exception-handler": "*",
-        "hyperf/framework": "1.0.*",
+        "hyperf/framework": "~1.1.0",
         "hyperf/http-server": "*",
         "hyperf/utils": "*",
-        "hyperf/circuit-breaker": "*"
+        "hyperf/circuit-breaker": "*",
+        "hyperf/json-rpc": "^1.1",
+        "hyperf/rpc-server": "^1.1"
     },
     "autoload": {
         "psr-4": {
