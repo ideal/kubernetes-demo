@@ -30,7 +30,8 @@ RUN pacman -Syyu --noconfirm && \
         echo 'swoole.use_shortname="Off"'; \
     } | tee /etc/php/conf.d/swoole.ini && \
     php -v && \
-    php -m
+    php -m && \
+    composer config -g repo.packagist composer https://mirrors.aliyun.com/composer/
     
 WORKDIR /var/www
 
