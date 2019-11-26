@@ -12,7 +12,9 @@
         "hyperf/utils": "*",
         "hyperf/circuit-breaker": "*",
         "hyperf/json-rpc": "^1.1",
-        "hyperf/rpc-server": "^1.1"
+        "hyperf/rpc-server": "^1.1",
+        "hyperf/service-governance": "^1.1",
+        "hyperf/consul": "^1.1"
     },
     "autoload": {
         "psr-4": {
