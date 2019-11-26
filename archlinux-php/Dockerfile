@@ -16,7 +16,7 @@ Server = https://repo.archlinuxcn.org/$arch\n\
 ' >> /etc/pacman.conf
 
 RUN pacman -Syyu --noconfirm && \
-    pacman -S --noconfirm gettext grep wget php php-embed php-swoole php-redis composer && \
+    pacman -S --noconfirm gettext grep wget unzip php php-embed php-swoole php-redis composer && \
     pacman -Scc --noconfirm && \
     rm -rf /var/cache/pacman/pkg/* /tmp/* && \
     { \
