@@ -1,0 +1,39 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: backend-www
+  labels:
+    name: backend-www
+spec:
+  replicas: 2
+  selector:
+    matchLabels:
+      name: backend-www
+  template:
+    metadata:
+      labels:
+        name: backend-www
+    spec:
+      containers:
+      - name: backend-www
+        image: ideal/backend-www:latest
+        ports:
+        - containerPort: 3000
+        env:
+        - name: CONSUL_HOST_IP
+          valueFrom:
+            fieldRef:
+              fieldPath: status.hostIP
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: backend-www
+  labels:
+    name: backend-www
+spec:
+  ports:
+  - port: 80
+    targetPort: 3000
+  selector:
+    name: backend-www
