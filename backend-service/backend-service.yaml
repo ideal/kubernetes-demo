@@ -1,0 +1,27 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: backend-service
+  labels:
+    name: backend-service
+spec:
+  replicas: 2
+  selector:
+    matchLabels:
+      name: backend-service
+  template:
+    metadata:
+      labels:
+        name: backend-service
+    spec:
+      containers:
+      - name: backend-service
+        image: ideal/backend-service:latest
+        ports:
+        - containerPort: 3000
+        env:
+        - name: CONSUL_HOST_IP
+          valueFrom:
+            fieldRef:
+              fieldPath: status.hostIP
+
