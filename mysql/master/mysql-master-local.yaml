@@ -37,8 +37,7 @@ spec:
           value: 'fatcat_ru'
       volumes:
       - name: mysql-master-data
-        hostPath:
-          path: /var/lib/mysql
+        emptyDir: {}
 ---
 apiVersion: v1
 kind: Service
