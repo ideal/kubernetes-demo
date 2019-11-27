@@ -13,10 +13,24 @@ declare(strict_types=1);
 
 namespace App\Controller;
 
+use Hyperf\HttpServer\Contract\RequestInterface;
+use Hyperf\HttpServer\Annotation\AutoController;
 use Hyperf\CircuitBreaker\Annotation\CircuitBreaker;
 
+use \App\Service\UserServiceInterface;
+
+/**
+ * @AutoController()
+ *
+ */
 class IndexController
 {
+    /**
+     * @var UserServiceInterface
+     *
+     */
+    private $userService;
+
     public function index()
     {
         return "hello 😊";
@@ -31,8 +45,14 @@ class IndexController
      * @CircuitBreaker(timeout=0.5, failCounter=1, successCounter=1)
      *
      */
-    public function create()
+    public function create(RequestInterface $request)
     {
-        return "";
+        $name = $request->input('name');
+        if (!$name) {
+            return 'Need a name';
+        }
+        var_dump($this->userService);
+
+        return $this->userService->create($name);
     }
 }
