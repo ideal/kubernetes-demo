@@ -23,4 +23,4 @@ helm install --name consul ./
 
 备注：
 
-对于阿里云上的Kubernetes集群，修改values.yaml里的storage为20Gi，然后这样运行`helm install --name consul --set server.storageClass=alicloud-disk-ssd ./`即可。因为阿里云针对有些类型的StorageClass存在最小容量限制，参见https://www.alibabacloud.com/help/doc-detail/86612.htm .
+对于阿里云上的Kubernetes集群，修改values.yaml里的storage为20Gi，修改storageClass为alicloud-disk-ssd，然后运行`helm install --name consul ./`。或者也直接不修改values.yaml，直接这样运行`helm install --name consul --set server.storage=20Gi,server.storageClass=alicloud-disk-ssd ./`。因为阿里云针对有些类型的StorageClass存在最小容量限制，参见https://www.alibabacloud.com/help/doc-detail/86612.htm .
