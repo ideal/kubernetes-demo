@@ -21,6 +21,8 @@ spec:
         ports:
         - containerPort: 3000
         env:
+        - name: DB_DRIVER
+          value: "mysqlnd"
         - name: DB_DATABASE
           value: "fatcat_db"
         - name: DB_PORT
