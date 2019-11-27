@@ -9,10 +9,15 @@ use Hyperf\RpcServer\Annotation\RpcService;
  */
 class UserService implements UserServiceInterface
 {
+    /**
+     * @var \Hyperf\Contract\ConfigInterface
+     */
+    private $config;
+
     public function create(string $name): string
     {
         // TODO: add user
 
-        return 'ok';
+        return 'ok from ' . $this->config->get('app_name');
     }
 }
