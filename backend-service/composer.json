@@ -15,7 +15,8 @@
         "hyperf/rpc-server": "^1.1",
         "hyperf/pool": "^1.1",
         "hyperf/service-governance": "^1.1",
-        "hyperf/consul": "^1.1"
+        "hyperf/consul": "^1.1",
+        "hyperf/db-connection": "^1.1"
     },
     "autoload": {
         "psr-4": {
