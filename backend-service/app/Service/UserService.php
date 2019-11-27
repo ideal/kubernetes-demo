@@ -20,6 +20,6 @@ class UserService implements UserServiceInterface
     {
         // TODO: add user
 
-        return 'ok from ' . $this->config->get('app_name');
+        return "add user: ${name}\nok from " . $this->config->get('app_name');
     }
 }
