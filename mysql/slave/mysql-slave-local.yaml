@@ -3,16 +3,16 @@ kind: Deployment
 metadata:
   name: mysql-slave
   labels:
-    name: mysql-slave
+    app: mysql-slave
 spec:
   replicas: 2
   selector:
     matchLabels:
-      name: mysql-slave
+      app: mysql-slave
   template:
     metadata:
       labels:
-        name: mysql-slave
+        app: mysql-slave
     spec:
       containers:
       - name: slave
@@ -39,10 +39,10 @@ kind: Service
 metadata:
   name: mysql-slave
   labels:
-    name: mysql-slave
+    app: mysql-slave
 spec:
   ports:
   - port: 3306
     targetPort: 3306
   selector:
-    name: mysql-slave
+    app: mysql-slave

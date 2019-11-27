@@ -3,16 +3,16 @@ kind: Deployment
 metadata:
   name: backend-service
   labels:
-    name: backend-service
+    app: backend-service
 spec:
   replicas: 2
   selector:
     matchLabels:
-      name: backend-service
+      app: backend-service
   template:
     metadata:
       labels:
-        name: backend-service
+        app: backend-service
     spec:
       containers:
       - name: backend-service

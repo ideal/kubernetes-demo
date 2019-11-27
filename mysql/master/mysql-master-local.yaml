@@ -3,16 +3,16 @@ kind: Deployment
 metadata:
   name: mysql-master
   labels:
-    name: mysql-master
+    app: mysql-master
 spec:
   replicas: 1
   selector:
     matchLabels:
-      name: mysql-master
+      app: mysql-master
   template:
     metadata:
       labels:
-        name: mysql-master
+        app: mysql-master
     spec:
       containers:
       - name: master
@@ -45,10 +45,10 @@ kind: Service
 metadata:
   name: mysql-master
   labels:
-    name: mysql-master
+    app: mysql-master
 spec:
   ports:
   - port: 3306
     targetPort: 3306
   selector:
-    name: mysql-master
+    app: mysql-master
