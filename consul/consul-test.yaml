@@ -1,0 +1,17 @@
+apiVersion: v1
+kind: Pod
+metadata:
+  name: consul-test
+spec:
+  containers:
+    - name: test
+      image: "consul:latest"
+      command:
+        - "/bin/sh"
+        - "-ec"
+        - |
+            export CONSUL_HTTP_ADDR="${CONSUL_CONSUL_SERVER_SERVICE_HOST}:8500"
+            printenv
+            consul kv get aaaa
+            sleep 300
+  restartPolicy: Never
