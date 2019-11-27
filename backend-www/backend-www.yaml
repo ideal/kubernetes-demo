@@ -28,6 +28,7 @@ metadata:
   labels:
     app: backend-www
 spec:
+  type: LoadBalancer
   ports:
   - port: 80
     targetPort: 3000
