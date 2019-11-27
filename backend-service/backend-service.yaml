@@ -22,10 +22,10 @@ spec:
         - containerPort: 3000
         env:
         - name: DB_DATABASE
-          value: fatcat_db
+          value: "fatcat_db"
         - name: DB_PORT
-          value: 3306
+          value: "3306"
         - name: DB_USERNAME
-          value: fatcat
+          value: "fatcat"
         - name: DB_PASSWORD
-          value: fatcat
+          value: "fatcat"
