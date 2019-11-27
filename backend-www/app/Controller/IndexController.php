@@ -14,19 +14,14 @@ declare(strict_types=1);
 namespace App\Controller;
 
 use Hyperf\HttpServer\Contract\RequestInterface;
-use Hyperf\HttpServer\Annotation\AutoController;
 use Hyperf\CircuitBreaker\Annotation\CircuitBreaker;
+use Hyperf\Di\Annotation\Inject;
 
-use \App\Service\UserServiceInterface;
-
-/**
- * @AutoController()
- *
- */
 class IndexController
 {
     /**
-     * @var UserServiceInterface
+     * @Inject
+     * @var \App\Service\UserServiceInterface
      *
      */
     private $userService;
@@ -51,7 +46,6 @@ class IndexController
         if (!$name) {
             return 'Need a name';
         }
-        var_dump($this->userService);
 
         return $this->userService->create($name);
     }

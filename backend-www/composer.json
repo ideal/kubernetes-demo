@@ -14,7 +14,8 @@
         "hyperf/rpc-client": "^1.1",
         "hyperf/json-rpc": "^1.1",
         "hyperf/rpc-server": "^1.1",
-        "hyperf/pool": "^1.1"
+        "hyperf/pool": "^1.1",
+        "hyperf/consul": "^1.1"
     },
     "autoload": {
         "psr-4": {

@@ -2,6 +2,7 @@
 
 namespace App\Service;
 
+use Hyperf\Di\Annotation\Inject;
 use Hyperf\RpcServer\Annotation\RpcService;
 
 /**
@@ -10,6 +11,7 @@ use Hyperf\RpcServer\Annotation\RpcService;
 class UserService implements UserServiceInterface
 {
     /**
+     * @Inject
      * @var \Hyperf\Contract\ConfigInterface
      */
     private $config;
