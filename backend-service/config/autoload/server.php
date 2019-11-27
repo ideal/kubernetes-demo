@@ -17,16 +17,6 @@ return [
     'mode' => SWOOLE_BASE,
     'servers' => [
         [
-            'name' => 'http',
-            'type' => Server::SERVER_HTTP,
-            'host' => '0.0.0.0',
-            'port' => 3000,
-            'sock_type' => SWOOLE_SOCK_TCP,
-            'callbacks' => [
-                SwooleEvent::ON_REQUEST => [Hyperf\HttpServer\Server::class, 'onRequest'],
-            ],
-        ],
-        [
             'name' => 'jsonrpc',
             'type' => Server::SERVER_BASE,
             'host' => '0.0.0.0',
