@@ -1,4 +1,4 @@
 # kubernetes-demo
 
-demo for run services in kubernetes.
+demo for running services in kubernetes.
 
