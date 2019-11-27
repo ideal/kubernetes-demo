@@ -21,8 +21,11 @@ spec:
         ports:
         - containerPort: 3000
         env:
-        - name: CONSUL_HOST_IP
-          valueFrom:
-            fieldRef:
-              fieldPath: status.hostIP
-
+        - name: DB_DATABASE
+          value: fatcat_db
+        - name: DB_PORT
+          value: 3306
+        - name: DB_USERNAME
+          value: fatcat
+        - name: DB_PASSWORD
+          value: fatcat
