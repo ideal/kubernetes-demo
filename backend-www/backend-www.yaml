@@ -20,11 +20,6 @@ spec:
         imagePullPolicy: Always
         ports:
         - containerPort: 3000
-        env:
-        - name: CONSUL_HOST_IP
-          valueFrom:
-            fieldRef:
-              fieldPath: status.hostIP
 ---
 apiVersion: v1
 kind: Service
