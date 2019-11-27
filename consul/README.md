@@ -8,8 +8,18 @@ https://helm.sh/docs/intro/install/
 
 1.
 
+On macOS:
+
 ```shell
 brew install helm
+```
+
+On archlinux:
+
+Add archlinuxcn repo, see https://github.com/archlinuxcn/repo , and then:
+
+```shell
+sudo pacman -S kubernetes-helm
 ```
 
 2.
