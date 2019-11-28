@@ -41,7 +41,7 @@ kubectl apply -f backend-service/backend-service.yaml
 kubectl apply -f backend-www/backend-www.yaml
 ```
 
-7. Testing if all are ok:
+7. Test if all are ok:
 
 ```shell
 # get backend-www's EXTERNAL-IP
@@ -54,6 +54,9 @@ curl -i -XPOST EXTERNAL-IP/user?name=fatcat
 # Change xxxx to your Pod name
 kubectl exec backend-www-xxxx -- curl -i -XPOST "backend-www/user?name=fatcat"
 
-# Then check fatcat_db.user table in mysql master or slave
+# Check fatcat_db.user table in mysql master or slave if data inserted
+...
 ```
+
+![Pods](.image/pods.png?raw=true "Pods")
 
