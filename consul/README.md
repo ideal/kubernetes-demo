@@ -11,7 +11,7 @@ https://helm.sh/docs/intro/install/
 On macOS:
 
 ```shell
-brew install helm
+brew install kubernetes-helm
 ```
 
 On archlinux:
