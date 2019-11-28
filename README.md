@@ -53,6 +53,6 @@ curl -i -XPOST EXTERNAL-IP/user/fatcat
 # If you have no EXTERNAL-IP
 kubectl exec backend-www-74564ffb47-8kn7w -- curl -i -XPOST "backend-www/user?name=fatcat"
 
-# Then check fatcat_db.user table in mysql
+# Then check fatcat_db.user table in mysql master or slave
 ```
 
