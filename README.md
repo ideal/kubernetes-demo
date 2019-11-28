@@ -1,12 +1,12 @@
-# kubernetes-demo
+# Kubernetes-demo
 
-demo for running services in kubernetes.
+demo for running services in Kubernetes.
 
 # Steps
 
 0. install `kubectl` and `helm`, run `helm init` to init both server (install tiller) and client.
 
-1. Optional: build and push Docker images (if you need) under `mysql/master`, `mysql/slave`, `archlinux-php`, `backend-service`, `backend-www`. If you build and push images yourself, you need to change container image in all yaml files.
+1. Optional: build and push Docker images (if you need) under `mysql/master`, `mysql/slave`, `archlinux-php`, `backend-service`, `backend-www`. If you build and push images yourself, you need to change container image in the corresponding yaml files.
 
 2. Deploy MySQL master:
 
@@ -56,6 +56,24 @@ kubectl exec backend-www-xxxx -- curl -i -XPOST "backend-www/user?name=fatcat"
 
 # Check fatcat_db.user table in mysql master or slave if data inserted
 ...
+```
+
+8. Maybe the most exciting features of Kubernetes:
+
+```shell
+# scaling
+kubectl scale --replicas 6 deployment/backend-service
+kubectl scale --replicas 6 deployment/backend-www
+kubectl scale --replicas 4 deployment/mysql-slave
+
+# autoscaler
+kubectl autoscale deployment/backend-service --min=2 --max=20 --cpu-percent=50
+
+# graceful upgrading
+kubectl set image deployment/backend-service backend-service=ideal/backend-service:0.0.1
+
+# graceful restarting
+kubectl rollout restart deployment/backend-www
 ```
 
 ![Pods](.image/pods.png?raw=true "Pods")
