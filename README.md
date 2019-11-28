@@ -51,7 +51,8 @@ kubectl get svc
 curl -i -XPOST EXTERNAL-IP/user?name=fatcat
 
 # If you have no EXTERNAL-IP
-kubectl exec backend-www-74564ffb47-8kn7w -- curl -i -XPOST "backend-www/user?name=fatcat"
+# Change xxxx to your Pod name
+kubectl exec backend-www-xxxx -- curl -i -XPOST "backend-www/user?name=fatcat"
 
 # Then check fatcat_db.user table in mysql master or slave
 ```
