@@ -48,7 +48,7 @@ kubectl apply -f backend-www/backend-www.yaml
 kubectl get svc
 
 # If you have EXTERNAL-IP
-curl -i -XPOST EXTERNAL-IP/user/fatcat
+curl -i -XPOST EXTERNAL-IP/user?name=fatcat
 
 # If you have no EXTERNAL-IP
 kubectl exec backend-www-74564ffb47-8kn7w -- curl -i -XPOST "backend-www/user?name=fatcat"
