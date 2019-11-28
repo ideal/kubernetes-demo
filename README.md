@@ -48,7 +48,7 @@ kubectl apply -f backend-www/backend-www.yaml
 kubectl get svc
 
 # If you have EXTERNAL-IP
-curl -i -XPOST EXTERNAL-IP/user?name=fatcat
+curl -i -XPOST "EXTERNAL-IP/user?name=fatcat"
 
 # If you have no EXTERNAL-IP
 # Change xxxx to your Pod name
