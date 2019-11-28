@@ -29,7 +29,7 @@ git submodule update --init
 cd consul/consul-helm && helm install --name consul --set server.storage=20Gi,server.storageClass=alicloud-disk-ssd ./
 ```
 
-5. Deploy backend-service, which provides service for backend-www:
+5. Deploy backend-service, which provides jsonrpc service for backend-www:
 
 ```shell
 kubectl apply -f backend-service/backend-service.yaml
