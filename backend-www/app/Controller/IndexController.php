@@ -14,6 +14,7 @@ declare(strict_types=1);
 namespace App\Controller;
 
 use Hyperf\HttpServer\Contract\RequestInterface;
+use Hyperf\HttpServer\Contract\ResponseInterface;
 use Hyperf\CircuitBreaker\Annotation\CircuitBreaker;
 use Hyperf\Di\Annotation\Inject;
 
@@ -26,9 +27,10 @@ class IndexController
      */
     private $userService;
 
-    public function index()
+    public function index(ResponseInterface $response)
     {
-        return "hello 😊";
+        $response->withHeader("Content-Type", "text/html; charset=utf-8");
+        return $response->raw("hello 😊");
     }
 
     public function get(int $id)
