@@ -1,0 +1,10 @@
+spring:
+  cloud:
+    consul:
+      host: consul-consul-server
+      port: 8500
+      discovery:
+        healthCheckPath: /health
+        healthCheckInterval: 20s
+  application:
+    name: JavaServiceDemo
