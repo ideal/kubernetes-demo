@@ -4,6 +4,6 @@ RUN mkdir /var/www
 
 ADD target/spring-cat-demo.jar /var/www
 
-WORKDIR /vaw/www
+WORKDIR /var/www
 
 CMD ["java", "-jar", "spring-cat-demo.jar"]
