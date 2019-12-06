@@ -15,6 +15,14 @@ return [
             'protocol'      => 'jsonrpc',
             'load_balancer' => 'random',
             'registry'      => $registry,
+        ],
+        [
+            'name'          => 'JavaServiceDemo',
+            'service'       => \App\Service\ProductServiceInterface::class,
+            'id'            => \App\Service\ProductServiceInterface::class,
+            'protocol'      => 'jsonrpc-http',
+            'load_balancer' => 'random',
+            'registry'      => $registry,
         ]
     ],
 ];

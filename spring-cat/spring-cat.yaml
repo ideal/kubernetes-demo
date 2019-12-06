@@ -1,0 +1,22 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: spring-cat
+  labels:
+    app: spring-cat
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: spring-cat
+  template:
+    metadata:
+      labels:
+        app: spring-cat
+    spec:
+      containers:
+      - name: spring-cat
+        image: ideal/spring-cat:latest
+        imagePullPolicy: Always
+        ports:
+        - containerPort: 3000

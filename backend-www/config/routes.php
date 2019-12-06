@@ -15,3 +15,4 @@ use Hyperf\HttpServer\Router\Router;
 Router::addRoute(['GET'], '/', 'App\Controller\IndexController@index');
 Router::addRoute(['GET'], '/user/{id:\d+}', 'App\Controller\IndexController@get');
 Router::addRoute(['POST'], '/user', 'App\Controller\IndexController@create');
+Router::addRoute(['POST'], '/product', 'App\Controller\IndexController@product');

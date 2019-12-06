@@ -27,6 +27,13 @@ class IndexController
      */
     private $userService;
 
+    /**
+     * @Inject
+     * @var \App\Service\ProductServiceInterface
+     *
+     */
+    private $productService;
+
     public function index(ResponseInterface $response)
     {
         $response->withHeader("Content-Type", "text/html; charset=utf-8");
@@ -50,5 +57,10 @@ class IndexController
         }
 
         return $this->userService->create($name);
+    }
+
+    public function product()
+    {
+        return $this->productService->add("iPhone", 20.05);
     }
 }
