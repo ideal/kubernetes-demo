@@ -1,5 +1,7 @@
 FROM ideal/archlinux-php:latest
 
+LABEL maintainer="ideal <idealities@gmail.com>"
+
 COPY . /var/www
 
 RUN composer install --no-dev && \
