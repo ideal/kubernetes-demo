@@ -17,7 +17,7 @@ return [
             'registry'      => $registry,
         ],
         [
-            'name'          => 'JavaServiceDemo',
+            'name'          => 'ProductService',
             'service'       => \App\Service\ProductServiceInterface::class,
             'id'            => \App\Service\ProductServiceInterface::class,
             'protocol'      => 'jsonrpc-http',

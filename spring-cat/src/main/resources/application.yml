@@ -7,4 +7,4 @@ spring:
         healthCheckPath: /health
         healthCheckInterval: 20s
   application:
-    name: JavaServiceDemo
+    name: ProductService

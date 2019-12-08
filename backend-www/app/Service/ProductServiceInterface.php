@@ -6,6 +6,6 @@ namespace App\Service;
 
 interface ProductServiceInterface
 {
-    public function add(string $name, double $price): string;
+    public function add(string $name, float $price): string;
 }
 
