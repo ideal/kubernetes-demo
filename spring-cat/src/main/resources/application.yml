@@ -6,5 +6,6 @@ spring:
       discovery:
         healthCheckPath: /health
         healthCheckInterval: 20s
+        prefer-ip-address: true
   application:
     name: ProductService
