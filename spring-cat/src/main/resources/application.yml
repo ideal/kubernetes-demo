@@ -4,9 +4,9 @@ spring:
       host: consul-consul-server
       port: 8500
       discovery:
-        healthCheckPath: /health
-        healthCheckInterval: 20s
         prefer-ip-address: true
         instance-id: ${spring.application.name}-${spring.cloud.client.ip-address}
+        health-check-path: /health
+        health-check-interval: 20s
   application:
     name: ProductService
