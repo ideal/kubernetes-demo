@@ -7,5 +7,6 @@ spring:
         healthCheckPath: /health
         healthCheckInterval: 20s
         prefer-ip-address: true
+        instance-id: ${spring.application.name}-${spring.cloud.client.ip-address}
   application:
     name: ProductService
